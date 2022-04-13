@@ -41,3 +41,4 @@ def parse_row(row):
         #     for k, v in row.items():
         #         # Do stuff
 
+    return row
