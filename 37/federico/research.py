@@ -1,7 +1,11 @@
 import csv
 import os
+import collections
 
 data = []
+record = collections.namedtuple(
+    'Record',
+)
 
 def init():
     base_folder = os.path.dirname(__file__)
