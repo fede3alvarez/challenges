@@ -50,7 +50,13 @@ def get_all_matching_models(
     'grep' string which defaults to DEFAULT_SEARCH ('trail').
     Sort the resulting sequence alphabetically
     """
-    pass
+    search_results = list()
+    for car in cars:
+        models = cars[car]
+        for model in models:
+            if grep.lower() in model.lower():
+                search_results.append(model) 
+    return sorted(search_results)
 
 
 def sort_car_models(cars: CarsType = cars) -> CarsType:
@@ -58,4 +64,17 @@ def sort_car_models(cars: CarsType = cars) -> CarsType:
     Loop through the cars dict returning a new dict with the
     same keys and the values sorted alphabetically.
     """
-    pass
+    ordered_dict = dict()
+
+    for car in cars:
+        # Note to self: this is done step-wise because
+        # cars is a dictionary, and the value cars[car] is a list
+        # Some how Python seems to get hung up in doing this in a single line
+        models = cars[car]
+        models.sort()
+        ordered_dict[car] = models
+
+    return ordered_dict
+
+if __name__ == "__main__":
+    sort_car_models(cars)

@@ -20,11 +20,13 @@ def test_get_first_model_each_manufacturer():
 def test_get_all_matching_models_default_grep():
     expected = ['Trailblazer', 'Trailhawk']
     assert get_all_matching_models() == expected
+    print("test_get_all_matching_models_default_grep - PASS")
 
 
 def test_get_all_matching_models_different_grep():
     expected = ['Accord', 'Commodore', 'Falcon']
     assert get_all_matching_models(grep='CO') == expected
+    print("test_get_all_matching_models_different_grep - PASS")
 
 
 def test_sort_dict_alphabetically():
@@ -40,8 +42,11 @@ def test_sort_dict_alphabetically():
         'Nissan': ['350Z', 'Maxima', 'Navara', 'Pulsar'],
     }
     assert actual == expected
+    print("test_sort_dict_alphabetically - PASS")
 
 if __name__ == "__main__":
     test_get_all_jeeps()
     test_get_first_model_each_manufacturer()
-    #test_get_all_matching_models_default_grep()
+    test_sort_dict_alphabetically()
+    test_get_all_matching_models_different_grep()
+    test_get_all_matching_models_default_grep()
